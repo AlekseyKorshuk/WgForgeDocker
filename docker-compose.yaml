@@ -26,8 +26,8 @@ services:
       context: ./
     links:
       - db
-    container_name: dash-app_dashboard
-    hostname: dash-app_dashboard
+    container_name: app_dashboard
+    hostname: app_dashboard
     restart: always
     depends_on:
       - db
