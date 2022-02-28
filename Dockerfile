@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3.9.7
 RUN apt-get update
 RUN apt-get install nano
 
