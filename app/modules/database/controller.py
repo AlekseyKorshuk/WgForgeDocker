@@ -37,7 +37,6 @@ def add_book(session, title: str, author: str, num_available: int, price: int):
         price=price
     )
     session.add(ed_book)
-    # session.commit()
 
 
 @db_read

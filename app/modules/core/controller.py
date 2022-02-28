@@ -5,6 +5,7 @@ import dash_bootstrap_components as dbc
 from dash import dcc, html
 import pandas as pd
 
+
 def get_dataframe():
     dataset = {}
     for book in get_all_books():
@@ -31,17 +32,19 @@ def set_layout(app, dataframe):
     app.layout = dbc.Container([
         dbc.Label('Simple data visualization:'),
         dash_table.DataTable(dataframe.to_dict('records'), [{"name": i, "id": i} for i in dataframe.columns], id='tbl'),
+        html.Br(),
         dcc.Input(id="title", value="Робинзон Крузо"),
         dcc.Input(id="author", value="Даниель Дефо"),
         dcc.Input(id="num_available", value="4"),
         dcc.Input(id="price", value="2700"),
-        html.Button(
-            ['Add new item'],
-            id='add_btn'
+        dcc.Dropdown(
+            ['Add', 'Delete'],
+            searchable=False,
+            id="action"
         ),
         html.Button(
-            ['Delete item'],
-            id='delete_btn'
+            ['Perform'],
+            id='button'
         ),
         dbc.Alert(id='tbl_out'),
     ])

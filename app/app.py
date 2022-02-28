@@ -6,5 +6,3 @@ from modules.core.source import server, app
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-# compose_attached_modules()

@@ -1,7 +1,7 @@
 FROM python:latest
 RUN apt-get update
 RUN apt-get install nano
- 
+
 RUN mkdir wd
 WORKDIR wd
 COPY app/requirements.txt .
