@@ -5,19 +5,6 @@
 ```shell
 git clone https://github.com/AlekseyKorshuk/WgForgeDocker
 cd WgForgeDocker
-```
-
-Change PostgreSQL platform in _docker-compose.yalm_:
-
-```yaml
-  db:
-    platform: linux/x86_64
-    image: postgres
-```
-
-Build container:
-
-```shell
 docker-compose up --build
 ```
 
@@ -30,7 +17,7 @@ You can:
 * Add new item
 * Remove existing item
 
-_This is done only for demo purpose. And such functions can not be available for users in real-life bookshop._
+_Note: This is done only for demo purpose. And such functions can not be available for users in real-life bookshop._
 
 ![Demo](https://i.postimg.cc/zfv6DS08/Screenshot-2022-02-28-at-19-02-36.png)
 
