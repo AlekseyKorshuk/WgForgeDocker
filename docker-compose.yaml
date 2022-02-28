@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  db:
+    platform: linux/x86_64
+    image: postgres
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_DB: app_db
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_user_pass
+    ports:
+      - "5432:5432"
+    networks:
+      - network
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - network
+  dashboard:
+    build:
+      context: ./
+    links:
+      - db
+    container_name: dash-app_dashboard
+    hostname: dash-app_dashboard
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8081:80"
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
